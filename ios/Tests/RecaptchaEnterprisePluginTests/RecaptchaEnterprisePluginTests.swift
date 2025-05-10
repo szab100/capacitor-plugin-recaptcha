@@ -2,14 +2,19 @@ import XCTest
 @testable import RecaptchaEnterprisePlugin
 
 class RecaptchaEnterpriseTests: XCTestCase {
-    func testEcho() {
-        // This is an example of a functional test case for a plugin.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testLoadAndExecute() {
+        let plugin = RecaptchaEnterprisePlugin()
+        let expectation = self.expectation(description: "Load and execute reCAPTCHA")
 
-        let implementation = RecaptchaEnterprise()
-        let value = "Hello, World!"
-        let result = implementation.echo(value)
+        plugin.load(CAPPluginCall(callbackId: "test", options: ["siteKey": "test_site_key"]))
 
-        XCTAssertEqual(value, result)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            plugin.execute(CAPPluginCall(callbackId: "test", options: ["action": "test_action"]))
+        }
+
+        waitForExpectations(timeout: 5, handler: nil)
+
+        XCTAssertNotNil(plugin.recaptchaClient)
+        XCTAssertEqual(plugin.siteKey, "test_site_key")
     }
 }

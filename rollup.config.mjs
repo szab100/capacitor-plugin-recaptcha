@@ -7,6 +7,7 @@ export default {
       name: 'capacitorRecaptchaEnterprise',
       globals: {
         '@capacitor/core': 'capacitorExports',
+        'recaptcha-v3': 'recaptchaV3'
       },
       sourcemap: true,
       inlineDynamicImports: true,
@@ -18,5 +19,5 @@ export default {
       inlineDynamicImports: true,
     },
   ],
-  external: ['@capacitor/core'],
+  external: ['@capacitor/core', 'recaptcha-v3'],
 };
