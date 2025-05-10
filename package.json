@@ -1,6 +1,6 @@
 {
   "name": "capacitor-plugin-recaptcha",
-  "version": "7.2.0",
+  "version": "7.2.1",
   "description": "Capacitor plugin for reCAPTCHA Enterprise",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",

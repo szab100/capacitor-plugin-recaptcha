@@ -10,12 +10,7 @@ declare global {
 }
 
 export interface WebExecuteOptions {
-  // no change needed here
   action: string;
-  useEnterprise?: boolean;
-  autoHideBadge?: boolean;
-  useRecaptchaNet?: boolean;
-  [key: string]: any;
 }
 
 export class CapacitorPluginRecaptcha extends WebPlugin implements RecaptchaEnterprisePlugin {
